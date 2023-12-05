@@ -1,0 +1,295 @@
+[gd_scene load_steps=14 format=3 uid="uid://dpyg1o2dq3lix"]
+
+[ext_resource type="Texture2D" uid="uid://x6ocj1u7eykn" path="res://assets/imgs/gui/boxback.svg" id="1_04aty"]
+[ext_resource type="Script" path="res://nodes/components/game.gd" id="1_pni0n"]
+[ext_resource type="Texture2D" uid="uid://dim8xkk3v20m7" path="res://assets/imgs/gui/boxfront.svg" id="2_evr20"]
+[ext_resource type="Texture2D" uid="uid://bwqx3ynxbswuc" path="res://assets/imgs/bg/wood.jpg" id="2_uxetq"]
+[ext_resource type="FontFile" uid="uid://db6ngexoykfvy" path="res://assets/fonts/matchup-pro-v1.1/MatchupPro.otf" id="4_hdhlb"]
+[ext_resource type="Texture2D" uid="uid://c26nbfv5hxk4b" path="res://assets/imgs/gui/arrow.svg" id="5_xchyy"]
+[ext_resource type="Texture2D" uid="uid://bek72vagij3if" path="res://assets/imgs/gui/button.svg" id="6_h5byr"]
+[ext_resource type="PackedScene" uid="uid://duu0mwp3gj0fs" path="res://nodes/components/cloud.tscn" id="7_cg85g"]
+[ext_resource type="Texture2D" uid="uid://bphewjbbsffdf" path="res://assets/imgs/gui/reload.svg" id="8_3e1kk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yae5s"]
+size = Vector2(831.5, 243)
+
+[sub_resource type="Animation" id="Animation_aci8g"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%content:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../gameOver/ColorRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1625)]
+}
+
+[sub_resource type="Animation" id="Animation_4ctcl"]
+resource_name = "lose"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%content:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.12549, 0.0901961, 1), Color(1, 1, 1, 1), Color(0.858824, 0, 0.00392157, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../gameOver/ColorRect:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.4, 3, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1564), Vector2(0, 0), Vector2(0, -87)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sj2b3"]
+_data = {
+"RESET": SubResource("Animation_aci8g"),
+"lose": SubResource("Animation_4ctcl")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pni0n")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(2206, 649)
+scale = Vector2(3.66389, 3.66389)
+
+[node name="Wood" type="Sprite2D" parent="Node2D"]
+position = Vector2(-480, 0.136459)
+scale = Vector2(1, 1)
+texture = ExtResource("2_uxetq")
+metadata/_edit_lock_ = true
+
+[node name="Wood2" type="Sprite2D" parent="Node2D"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_uxetq")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="gameover" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="coll" type="CollisionShape2D" parent="gameover"]
+position = Vector2(2967, 393)
+shape = SubResource("RectangleShape2D_yae5s")
+
+[node name="cloud" parent="." instance=ExtResource("7_cg85g")]
+position = Vector2(1337, 162)
+Content = NodePath("../box/content")
+
+[node name="box" type="Node2D" parent="."]
+position = Vector2(1392, 721)
+
+[node name="Boxback" type="Sprite2D" parent="box"]
+position = Vector2(-1.5, -5.5)
+texture = ExtResource("1_04aty")
+metadata/_edit_lock_ = true
+
+[node name="content" type="Node2D" parent="box"]
+unique_name_in_owner = true
+position = Vector2(-1, 4)
+metadata/_edit_lock_ = true
+
+[node name="Boxfront" type="Sprite2D" parent="box"]
+position = Vector2(0, -6)
+texture = ExtResource("2_evr20")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="box"]
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="box/StaticBody2D"]
+scale = Vector2(1.975, 1.975)
+polygon = PackedVector2Array(-173, -238, -172, 214, 182, 213, 183, -235, 209.114, -355.949, 208, 249, -203, 248, -192.405, -356.962)
+metadata/_edit_lock_ = true
+
+[node name="gover" type="AnimationPlayer" parent="box"]
+libraries = {
+"": SubResource("AnimationLibrary_sj2b3")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1149, 649)
+zoom = Vector2(0.5, 0.5)
+
+[node name="labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -81.0
+offset_top = -49.0
+offset_right = -41.0
+offset_bottom = 38.0
+
+[node name="Label" type="Label" parent="labels"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 91.0
+offset_right = 1002.0
+offset_bottom = 608.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 178
+text = "Score:
+
+Best Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="puntaje" type="Label" parent="labels"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 182.0
+offset_top = 278.0
+offset_right = 1012.0
+offset_bottom = 420.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 178
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="mejorpuntaje" type="Label" parent="labels"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 179.0
+offset_top = 570.0
+offset_right = 1009.0
+offset_bottom = 712.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 178
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="controles" type="Node2D" parent="."]
+
+[node name="R" type="TouchScreenButton" parent="controles"]
+position = Vector2(553, 810)
+scale = Vector2(0.310547, 0.310547)
+texture_normal = ExtResource("5_xchyy")
+texture_pressed = ExtResource("5_xchyy")
+action = "R"
+
+[node name="drop" type="TouchScreenButton" parent="controles"]
+position = Vector2(1904, 810)
+scale = Vector2(0.310547, 0.310547)
+texture_normal = ExtResource("6_h5byr")
+texture_pressed = ExtResource("6_h5byr")
+action = "drop"
+
+[node name="L" type="TouchScreenButton" parent="controles"]
+position = Vector2(444, 810)
+rotation = -3.14159
+scale = Vector2(0.311, -0.311)
+texture_normal = ExtResource("5_xchyy")
+texture_pressed = ExtResource("5_xchyy")
+action = "L"
+
+[node name="gameOver" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="gameOver"]
+offset_top = -1625.0
+offset_right = 2362.0
+offset_bottom = -131.0
+color = Color(0, 0, 0, 0.537255)
+
+[node name="Label" type="Label" parent="gameOver/ColorRect"]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 255.0
+offset_right = 1145.0
+offset_bottom = 772.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 178
+text = "Score:
+
+Best Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="puntaje" type="Label" parent="gameOver/ColorRect"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 456.0
+offset_right = 1160.0
+offset_bottom = 598.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 178
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mejorpuntaje" type="Label" parent="gameOver/ColorRect"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 748.0
+offset_right = 1157.0
+offset_bottom = 890.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 178
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="gameOver/ColorRect"]
+layout_mode = 0
+offset_left = 1507.0
+offset_top = 474.0
+offset_right = 2531.0
+offset_bottom = 1498.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_3e1kk")
+texture_pressed = ExtResource("8_3e1kk")
+texture_hover = ExtResource("8_3e1kk")
+
+[node name="limit" type="Marker2D" parent="."]
+position = Vector2(1093, 237)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 1179.0
+offset_right = 854.0
+offset_bottom = 1348.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 128
+text = "version: 24 horas"
+
+[connection signal="body_entered" from="gameover" to="." method="_on_gameover_body_entered"]
+[connection signal="body_exited" from="gameover" to="." method="_on_gameover_body_exited"]
+[connection signal="pressed" from="gameOver/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]

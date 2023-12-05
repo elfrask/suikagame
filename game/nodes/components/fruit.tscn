@@ -1,0 +1,240 @@
+[gd_scene load_steps=24 format=3 uid="uid://7k2cge8d6nhu"]
+
+[ext_resource type="Script" path="res://nodes/components/fruit.gd" id="1_ee8lm"]
+[ext_resource type="Texture2D" uid="uid://cogjvs72ki3o8" path="res://assets/imgs/svg/cereza.svg" id="1_vng0j"]
+[ext_resource type="Texture2D" uid="uid://d4dpaq88ogykf" path="res://assets/imgs/svg/fresa.svg" id="2_ajc7c"]
+[ext_resource type="Texture2D" uid="uid://ee1o1vfdsfq6" path="res://assets/imgs/svg/uva.svg" id="3_yvius"]
+[ext_resource type="Texture2D" uid="uid://bx8lomtnkua4x" path="res://assets/imgs/svg/naranja.svg" id="4_c13fw"]
+[ext_resource type="Texture2D" uid="uid://cun2r22m5kiys" path="res://assets/imgs/svg/mandarina.svg" id="5_c4rxi"]
+[ext_resource type="Texture2D" uid="uid://b3lt1uxewxhg4" path="res://assets/imgs/svg/manzana.svg" id="6_nv6rl"]
+[ext_resource type="Texture2D" uid="uid://80uy4sejrwjo" path="res://assets/imgs/svg/parchita.svg" id="7_amhxk"]
+[ext_resource type="Texture2D" uid="uid://j8t5cv8kcdv5" path="res://assets/imgs/svg/durazno.svg" id="8_0duv6"]
+[ext_resource type="Texture2D" uid="uid://2jjmpfsxe8of" path="res://assets/imgs/svg/piña.svg" id="9_snkhi"]
+[ext_resource type="Texture2D" uid="uid://dghmnoqd0pftl" path="res://assets/imgs/svg/melon.svg" id="10_ob0c3"]
+[ext_resource type="Texture2D" uid="uid://swhspwc2qv2n" path="res://assets/imgs/sandia.png" id="11_vcp0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8vqfq"]
+radius = 17.0294
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ga68i"]
+radius = 27.0185
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3bme8"]
+radius = 45.0444
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_de2f1"]
+radius = 58.0086
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qrj75"]
+radius = 77.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt5fj"]
+radius = 99.0202
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t31pv"]
+radius = 119.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_voci6"]
+radius = 140.004
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e0xpi"]
+radius = 153.0
+height = 358.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubg5e"]
+radius = 198.04
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_243hv"]
+radius = 219.009
+
+[node name="fruit" type="RigidBody2D" groups=["fruit"]]
+collision_mask = 9
+freeze_mode = 1
+max_contacts_reported = 20
+contact_monitor = true
+script = ExtResource("1_ee8lm")
+
+[node name="fruits" type="Node2D" parent="."]
+
+[node name="fruit0" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(0, -2)
+scale = Vector2(0.0859375, 0.0859375)
+texture = ExtResource("1_vng0j")
+
+[node name="fruit1" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-1, -2)
+scale = Vector2(0.128906, 0.128906)
+texture = ExtResource("2_ajc7c")
+
+[node name="fruit2" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(2, -4)
+scale = Vector2(0.210938, 0.210938)
+texture = ExtResource("3_yvius")
+
+[node name="fruit3" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-2, -9)
+scale = Vector2(0.273638, 0.273638)
+texture = ExtResource("4_c13fw")
+
+[node name="fruit4" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-3, -10)
+scale = Vector2(0.363281, 0.363281)
+texture = ExtResource("5_c4rxi")
+
+[node name="fruit5" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-4, -14)
+scale = Vector2(0.499169, 0.499169)
+texture = ExtResource("6_nv6rl")
+
+[node name="fruit6" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-6, -3)
+scale = Vector2(0.562052, 0.562052)
+texture = ExtResource("7_amhxk")
+
+[node name="fruit7" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-7, -2)
+scale = Vector2(0.666469, 0.666469)
+texture = ExtResource("8_0duv6")
+
+[node name="fruit8" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-8, -22)
+scale = Vector2(0.859699, 0.859699)
+texture = ExtResource("9_snkhi")
+
+[node name="fruit9" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-11, -10)
+scale = Vector2(0.932693, 0.932693)
+texture = ExtResource("10_ob0c3")
+
+[node name="fruit10" type="Sprite2D" parent="fruits"]
+visible = false
+position = Vector2(-1.78814e-07, -1.78814e-07)
+scale = Vector2(0.898438, 0.898438)
+texture = ExtResource("11_vcp0i")
+
+[node name="coll0" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_8vqfq")
+disabled = true
+
+[node name="coll1" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ga68i")
+disabled = true
+
+[node name="coll2" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_3bme8")
+disabled = true
+
+[node name="coll3" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_de2f1")
+disabled = true
+
+[node name="coll4" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_qrj75")
+disabled = true
+
+[node name="coll5" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_vt5fj")
+disabled = true
+
+[node name="coll6" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_t31pv")
+disabled = true
+
+[node name="coll7" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_voci6")
+disabled = true
+
+[node name="coll8" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_e0xpi")
+disabled = true
+
+[node name="coll9" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ubg5e")
+disabled = true
+
+[node name="coll10" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_243hv")
+disabled = true
+
+[node name="st" type="CharacterBody2D" parent="." groups=["fruti"]]
+collision_layer = 0
+collision_mask = 8
+
+[node name="coll0" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_8vqfq")
+disabled = true
+
+[node name="coll1" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_ga68i")
+disabled = true
+
+[node name="coll2" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_3bme8")
+disabled = true
+
+[node name="coll3" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_de2f1")
+disabled = true
+
+[node name="coll4" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_qrj75")
+disabled = true
+
+[node name="coll5" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_vt5fj")
+disabled = true
+
+[node name="coll6" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_t31pv")
+disabled = true
+
+[node name="coll7" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_voci6")
+disabled = true
+
+[node name="coll8" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CapsuleShape2D_e0xpi")
+disabled = true
+
+[node name="coll9" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_ubg5e")
+disabled = true
+
+[node name="coll10" type="CollisionShape2D" parent="st"]
+visible = false
+shape = SubResource("CircleShape2D_243hv")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

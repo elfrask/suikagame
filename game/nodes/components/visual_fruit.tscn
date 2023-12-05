@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfi0cddf1meot"]
+
+[ext_resource type="Script" path="res://nodes/components/visual_fruit.gd" id="1_xrjnj"]
+[ext_resource type="Texture2D" uid="uid://cogjvs72ki3o8" path="res://assets/imgs/svg/cereza.svg" id="2_jckyt"]
+[ext_resource type="Texture2D" uid="uid://d4dpaq88ogykf" path="res://assets/imgs/svg/fresa.svg" id="3_jk5rg"]
+[ext_resource type="Texture2D" uid="uid://ee1o1vfdsfq6" path="res://assets/imgs/svg/uva.svg" id="4_nljew"]
+[ext_resource type="Texture2D" uid="uid://bx8lomtnkua4x" path="res://assets/imgs/svg/naranja.svg" id="5_pg6oq"]
+[ext_resource type="Texture2D" uid="uid://cun2r22m5kiys" path="res://assets/imgs/svg/mandarina.svg" id="6_nkne4"]
+[ext_resource type="Texture2D" uid="uid://b3lt1uxewxhg4" path="res://assets/imgs/svg/manzana.svg" id="7_lsm4t"]
+[ext_resource type="Texture2D" uid="uid://80uy4sejrwjo" path="res://assets/imgs/svg/parchita.svg" id="8_0kniw"]
+[ext_resource type="Texture2D" uid="uid://j8t5cv8kcdv5" path="res://assets/imgs/svg/durazno.svg" id="9_r5qxs"]
+[ext_resource type="Texture2D" uid="uid://2jjmpfsxe8of" path="res://assets/imgs/svg/piña.svg" id="10_2ybft"]
+[ext_resource type="Texture2D" uid="uid://dghmnoqd0pftl" path="res://assets/imgs/svg/melon.svg" id="11_qey5n"]
+[ext_resource type="Texture2D" uid="uid://swhspwc2qv2n" path="res://assets/imgs/sandia.png" id="12_qbw7g"]
+
+[node name="VisualFruit" type="Node2D"]
+script = ExtResource("1_xrjnj")
+
+[node name="fruit0" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -2)
+scale = Vector2(0.0859375, 0.0859375)
+texture = ExtResource("2_jckyt")
+
+[node name="fruit1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, -2)
+scale = Vector2(0.128906, 0.128906)
+texture = ExtResource("3_jk5rg")
+
+[node name="fruit2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -4)
+scale = Vector2(0.210938, 0.210938)
+texture = ExtResource("4_nljew")
+
+[node name="fruit3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2, -9)
+scale = Vector2(0.273638, 0.273638)
+texture = ExtResource("5_pg6oq")
+
+[node name="fruit4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, -10)
+scale = Vector2(0.363281, 0.363281)
+texture = ExtResource("6_nkne4")
+
+[node name="fruit5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4, -14)
+scale = Vector2(0.499169, 0.499169)
+texture = ExtResource("7_lsm4t")
+
+[node name="fruit6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-6, -3)
+scale = Vector2(0.562052, 0.562052)
+texture = ExtResource("8_0kniw")
+
+[node name="fruit7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-7, -2)
+scale = Vector2(0.666469, 0.666469)
+texture = ExtResource("9_r5qxs")
+
+[node name="fruit8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8, -22)
+scale = Vector2(0.859699, 0.859699)
+texture = ExtResource("10_2ybft")
+
+[node name="fruit9" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-11, -10)
+scale = Vector2(0.932693, 0.932693)
+texture = ExtResource("11_qey5n")
+
+[node name="fruit10" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1.78814e-07, -1.78814e-07)
+scale = Vector2(0.898438, 0.898438)
+texture = ExtResource("12_qbw7g")

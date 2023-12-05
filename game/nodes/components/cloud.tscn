@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://duu0mwp3gj0fs"]
+
+[ext_resource type="Script" path="res://nodes/components/cloud.gd" id="1_lh3v2"]
+[ext_resource type="Texture2D" uid="uid://bq7ty4sowlr18" path="res://assets/imgs/cloud.png" id="1_verhi"]
+[ext_resource type="PackedScene" uid="uid://bfi0cddf1meot" path="res://nodes/components/visual_fruit.tscn" id="3_87v3i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a152x"]
+radius = 62.2896
+
+[node name="cloud" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_lh3v2")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+position = Vector2(102, -37)
+scale = Vector2(0.712222, 0.712222)
+texture = ExtResource("1_verhi")
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(21, 0)
+
+[node name="VisualFruit" parent="spawn" instance=ExtResource("3_87v3i")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(21.035, -2)
+shape = SubResource("CircleShape2D_a152x")
+metadata/_edit_lock_ = true
+
+[node name="coulddown" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="coulddown" to="." method="_on_coulddown_timeout"]
