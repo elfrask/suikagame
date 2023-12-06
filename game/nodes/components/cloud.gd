@@ -45,10 +45,10 @@ func _physics_process(delta):
 		velocity.x = 0
 		
 	if Input.is_action_just_pressed("drop"):
-		if $coulddown.is_stopped():
+		if $cooldown.is_stopped():
 			spawn_fruit($spawn.global_position)
 			generate_spawn_fruit()
-			$coulddown.start(0)
+			$cooldown.start(0)
 		
 		pass
 
@@ -58,5 +58,5 @@ func _physics_process(delta):
 
 
 func _on_coulddown_timeout():
-	$coulddown.stop()
+	$cooldown.stop()
 	pass # Replace with function body.

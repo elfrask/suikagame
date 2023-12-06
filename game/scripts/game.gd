@@ -19,7 +19,6 @@ func _ready():
 func savescore():
 	var fs = FileAccess.open("user://score.json", FileAccess.WRITE)
 	var data= {
-		"Score": Score,
 		"BestScore": BestScore
 	}
 	
@@ -38,7 +37,6 @@ func loadscore():
 		var cadena = fs.get_as_text()
 		var data = json.parse_string(cadena)
 		
-		Score = data["Score"]
 		BestScore = data["BestScore"]
 	
 	

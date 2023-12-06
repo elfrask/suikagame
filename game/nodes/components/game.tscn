@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpyg1o2dq3lix"]
+[gd_scene load_steps=15 format=3 uid="uid://dpyg1o2dq3lix"]
 
 [ext_resource type="Texture2D" uid="uid://x6ocj1u7eykn" path="res://assets/imgs/gui/boxback.svg" id="1_04aty"]
 [ext_resource type="Script" path="res://nodes/components/game.gd" id="1_pni0n"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bek72vagij3if" path="res://assets/imgs/gui/button.svg" id="6_h5byr"]
 [ext_resource type="PackedScene" uid="uid://duu0mwp3gj0fs" path="res://nodes/components/cloud.tscn" id="7_cg85g"]
 [ext_resource type="Texture2D" uid="uid://bphewjbbsffdf" path="res://assets/imgs/gui/reload.svg" id="8_3e1kk"]
+[ext_resource type="AudioStream" uid="uid://c026pg125hy0p" path="res://assets/sounds/music.mp3" id="10_4p8ys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yae5s"]
 size = Vector2(831.5, 243)
@@ -83,12 +84,10 @@ scale = Vector2(3.66389, 3.66389)
 
 [node name="Wood" type="Sprite2D" parent="Node2D"]
 position = Vector2(-480, 0.136459)
-scale = Vector2(1, 1)
 texture = ExtResource("2_uxetq")
 metadata/_edit_lock_ = true
 
 [node name="Wood2" type="Sprite2D" parent="Node2D"]
-scale = Vector2(1, 1)
 texture = ExtResource("2_uxetq")
 flip_h = true
 metadata/_edit_lock_ = true
@@ -229,10 +228,10 @@ color = Color(0, 0, 0, 0.537255)
 
 [node name="Label" type="Label" parent="gameOver/ColorRect"]
 layout_mode = 0
-offset_left = 350.0
-offset_top = 255.0
-offset_right = 1145.0
-offset_bottom = 772.0
+offset_left = 323.0
+offset_top = 510.0
+offset_right = 1118.0
+offset_bottom = 1027.0
 theme_override_fonts/font = ExtResource("4_hdhlb")
 theme_override_font_sizes/font_size = 178
 text = "Score:
@@ -241,12 +240,24 @@ Best Score:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="gameOver/ColorRect"]
+layout_mode = 0
+offset_left = 563.0
+offset_top = -50.0
+offset_right = 1816.0
+offset_bottom = 467.0
+theme_override_fonts/font = ExtResource("4_hdhlb")
+theme_override_font_sizes/font_size = 328
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="puntaje" type="Label" parent="gameOver/ColorRect"]
 layout_mode = 0
-offset_left = 330.0
-offset_top = 456.0
-offset_right = 1160.0
-offset_bottom = 598.0
+offset_left = 303.0
+offset_top = 711.0
+offset_right = 1133.0
+offset_bottom = 853.0
 theme_override_fonts/font = ExtResource("4_hdhlb")
 theme_override_font_sizes/font_size = 178
 text = "0
@@ -256,10 +267,10 @@ vertical_alignment = 1
 
 [node name="mejorpuntaje" type="Label" parent="gameOver/ColorRect"]
 layout_mode = 0
-offset_left = 327.0
-offset_top = 748.0
-offset_right = 1157.0
-offset_bottom = 890.0
+offset_left = 300.0
+offset_top = 1003.0
+offset_right = 1130.0
+offset_bottom = 1145.0
 theme_override_fonts/font = ExtResource("4_hdhlb")
 theme_override_font_sizes/font_size = 178
 text = "0
@@ -289,6 +300,10 @@ offset_bottom = 1348.0
 theme_override_fonts/font = ExtResource("4_hdhlb")
 theme_override_font_sizes/font_size = 128
 text = "version: 24 horas"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4p8ys")
+autoplay = true
 
 [connection signal="body_entered" from="gameover" to="." method="_on_gameover_body_entered"]
 [connection signal="body_exited" from="gameover" to="." method="_on_gameover_body_exited"]

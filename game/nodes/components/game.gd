@@ -5,6 +5,8 @@ func _ready():
 	Game.gameover = false
 	Game.limit = $limit.global_position.y
 	Game.Main = self
+	
+	%mejorpuntaje.text = str(Game.BestScore)
 	pass # Replace with function body.
 
 
@@ -28,6 +30,11 @@ func gameover():
 	$gameOver/ColorRect/mejorpuntaje.text = str(Game.BestScore)
 	$box/gover.play("lose")
 	Game.gameover = true
+	
+	if Game.BestScore < Game.Score:
+		
+		Game.BestScore = Game.Score
+		Game.savescore()
 	pass
 
 

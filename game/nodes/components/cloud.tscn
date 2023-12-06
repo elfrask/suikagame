@@ -28,7 +28,7 @@ position = Vector2(21.035, -2)
 shape = SubResource("CircleShape2D_a152x")
 metadata/_edit_lock_ = true
 
-[node name="coulddown" type="Timer" parent="."]
+[node name="cooldown" type="Timer" parent="."]
 wait_time = 0.3
 
-[connection signal="timeout" from="coulddown" to="." method="_on_coulddown_timeout"]
+[connection signal="timeout" from="cooldown" to="." method="_on_coulddown_timeout"]

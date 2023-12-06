@@ -79,6 +79,7 @@ func _on_body_entered(body):
 				
 				#%content.add_child(new_fruit)
 				Game.Score += Game.points[fruit]
+				$sound.play(0)
 				if fruit == 11:
 					queue_free()
 					body.queue_free()

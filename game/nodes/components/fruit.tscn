@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://7k2cge8d6nhu"]
+[gd_scene load_steps=25 format=3 uid="uid://7k2cge8d6nhu"]
 
 [ext_resource type="Script" path="res://nodes/components/fruit.gd" id="1_ee8lm"]
 [ext_resource type="Texture2D" uid="uid://cogjvs72ki3o8" path="res://assets/imgs/svg/cereza.svg" id="1_vng0j"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://2jjmpfsxe8of" path="res://assets/imgs/svg/piña.svg" id="9_snkhi"]
 [ext_resource type="Texture2D" uid="uid://dghmnoqd0pftl" path="res://assets/imgs/svg/melon.svg" id="10_ob0c3"]
 [ext_resource type="Texture2D" uid="uid://swhspwc2qv2n" path="res://assets/imgs/sandia.png" id="11_vcp0i"]
+[ext_resource type="AudioStream" uid="uid://bqcab4tdb6jwt" path="res://assets/sounds/tem.wav" id="13_45wht"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8vqfq"]
 radius = 17.0294
@@ -235,6 +236,9 @@ disabled = true
 visible = false
 shape = SubResource("CircleShape2D_243hv")
 disabled = true
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_45wht")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
